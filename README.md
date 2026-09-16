@@ -7,26 +7,33 @@ Visual interface for KubeOrch - Kubernetes made simple through drag-and-drop.
 
 ## 🎯 Vision
 
-Make Kubernetes accessible to everyone. No YAML, no complexity - just drag components, connect them visually, and deploy with one click.
+Make Kubernetes accessible to everyone. Design components visually, inspect the generated application model, and use supported delivery paths without treating catalog metadata as proof of a working external integration.
 
 ## 🚀 What is KubeOrch UI?
 
-The intuitive frontend that makes Kubernetes visual and simple:
+The frontend for designing and operating KubeOrch application workflows:
 
-- **Visual Workflow Canvas** - Drag and drop services, draw connections
-- **150+ Components** - Pre-configured databases, apps, ML platforms
-- **One-Click Plugins** - Add monitoring, logging, security instantly
-- **Auto-Connection** - Services wire themselves together intelligently
-- **Zero Configuration** - Everything works with smart defaults
+- **Visual Workflow Canvas** - Drag and drop services and model their relationships
+- **Component Library** - Browse reusable Kubernetes-oriented building blocks
+- **Extensions Catalog** - Enable optional CRD authoring metadata and node types for workflow design
+- **Runtime API Configuration** - Connect the browser UI to the configured KubeOrch Core API
+- **Progressive Configuration** - Start with focused controls and reveal advanced settings when needed
+
+## Extensions and integrations
+
+The current CRD catalog is called **Extensions**. Enabling an extension makes its authoring metadata and node types available in the UI; it does **not** mean that KubeOrch installed an operator, configured credentials, verified health, or tested operational compatibility.
+
+KubeOrch reserves **Integration** for adapters that satisfy the community roadmap's operational contract, including authentication, capability discovery, health states, object mapping, credential handling, and disposable end-to-end compatibility testing. See [What Counts As An Integration](https://github.com/KubeOrch/community/blob/main/ROADMAP.md#what-counts-as-an-integration).
+
+Older concept documents such as [`docs/idea.md`](docs/idea.md) and [`docs/component-palette.md`](docs/component-palette.md) describe historical or proposed product ideas. They are not statements of currently shipped behavior.
 
 ## ✨ Key Features
 
 - 🎨 **Drag & Drop Designer** - Visual workflow creation with connection lines
-- 🔌 **Smart Connections** - Auto-detect compatible services and ports
-- 📦 **Component Library** - PostgreSQL, Redis, Kafka, and 150+ more
-- 🚀 **One-Click Deploy** - Transform visual design to running services
-- 📊 **Real-time Logs** - Stream container logs from all services
-- 🎯 **Plugin Marketplace** - Install complete stacks with one click
+- 🔌 **Authoring Connections** - Model relationships between workflow components
+- 📦 **Component Library** - Reusable service and Kubernetes resource building blocks
+- 🧩 **Extensions Catalog** - Browse optional authoring extensions while keeping support status separate from enablement
+- 📊 **Logs and Monitoring Surfaces** - Present runtime information when supported by the configured backend
 
 ## 🛠️ Tech Stack
 
@@ -73,9 +80,9 @@ ui/
 ## 🎨 UI Philosophy
 
 - **Progressive Disclosure** - Show complexity only when needed
-- **Smart Defaults** - Everything works out-of-the-box
-- **Visual Feedback** - Instant validation and suggestions
-- **Zero Configuration** - Optional advanced settings
+- **Explicit Capability** - Do not imply installation, health, or compatibility from catalog presence alone
+- **Visual Feedback** - Make state and user actions understandable
+- **Accessible by Default** - Keep keyboard and assistive-technology use in scope
 
 ## 🤝 Contributing
 

@@ -1,3 +1,5 @@
+> **Historical concept document.** This palette preserves early UI/product concepts and is not a statement of currently shipped behavior. References below to one-click installation, automatic integration, marketplaces, or zero-configuration stacks are historical proposals unless separately implemented and verified. The current CRD catalog is an authoring **Extensions** catalog; an operational **Integration** must satisfy the contract in [What Counts As An Integration](https://github.com/KubeOrch/community/blob/main/ROADMAP.md#what-counts-as-an-integration).
+
 # KubeOrchestra UI - Component Palette Organization
 
 ## Visual Component Categories

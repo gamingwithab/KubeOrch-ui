@@ -1,3 +1,5 @@
+> **Historical concept document.** This file preserves early KubeOrch product ideas and is not a statement of currently shipped behavior. Marketplace, one-click installation, automatic integration, and zero-configuration concepts below should be read as historical proposals unless they are implemented and verified elsewhere. For the current distinction between an authoring **Extension** and an operational **Integration**, see [What Counts As An Integration](https://github.com/KubeOrch/community/blob/main/ROADMAP.md#what-counts-as-an-integration).
+
 # KubeOrchestra UI - Project Overview
 
 ## Project Vision

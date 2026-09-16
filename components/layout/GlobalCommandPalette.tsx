@@ -76,10 +76,10 @@ const pages = [
     keywords: ["pods", "deployments", "services"],
   },
   {
-    name: "Plugins",
-    path: "/dashboard/plugins",
+    name: "Extensions",
+    path: "/dashboard/integrations/plugins",
     icon: Puzzle,
-    keywords: ["extensions", "addon"],
+    keywords: ["plugin", "plugins", "crd", "addon"],
   },
   {
     name: "Monitoring",

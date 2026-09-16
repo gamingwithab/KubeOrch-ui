@@ -89,7 +89,11 @@ const navItems = [
         href: "/dashboard/integrations/registries",
         icon: Container,
       },
-      { title: "Plugins", href: "/dashboard/integrations/plugins", icon: Plug },
+      {
+        title: "Extensions",
+        href: "/dashboard/integrations/plugins",
+        icon: Plug,
+      },
       {
         title: "Notifications",
         href: "/dashboard/integrations/notifications",

@@ -149,6 +149,7 @@ function PluginCard({
               checked={plugin.enabled}
               onCheckedChange={checked => onToggle(plugin.id, checked)}
               disabled={isToggling}
+              aria-label={`${plugin.enabled ? "Disable" : "Enable"} ${plugin.displayName} extension`}
             />
           </div>
         </div>
@@ -203,7 +204,7 @@ export default function PluginsPage() {
   const breadcrumbs = [
     { label: "Dashboard", href: "/dashboard" },
     { label: "Integrations", href: "/dashboard/integrations" },
-    { label: "Plugins" },
+    { label: "Extensions" },
   ];
 
   useEffect(() => {
@@ -215,15 +216,15 @@ export default function PluginsPage() {
     try {
       if (enabled) {
         await enablePlugin(id);
-        toast.success("Plugin enabled successfully");
+        toast.success("Extension enabled successfully");
       } else {
         await disablePlugin(id);
-        toast.success("Plugin disabled successfully");
+        toast.success("Extension disabled successfully");
       }
     } catch (error) {
       console.error("Failed to toggle plugin:", error);
       toast.error(
-        enabled ? "Failed to enable plugin" : "Failed to disable plugin"
+        enabled ? "Failed to enable extension" : "Failed to disable extension"
       );
     } finally {
       setTogglingPlugins(prev => {
@@ -258,8 +259,8 @@ export default function PluginsPage() {
   return (
     <AppLayout>
       <PageContainer
-        title="CRD Plugins"
-        description="Enable Kubernetes Custom Resource Definition plugins to add new node types to your workflows"
+        title="Extensions"
+        description="Manage optional CRD authoring extensions that make additional node types available in the workflow canvas"
         breadcrumbs={breadcrumbs}
       >
         {/* Stats and filters */}
@@ -267,7 +268,7 @@ export default function PluginsPage() {
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Plug className="h-4 w-4" />
             <span>
-              {enabledCount} of {plugins.length} plugins enabled
+              {enabledCount} of {plugins.length} extensions enabled
             </span>
           </div>
           <div className="flex-1" />
@@ -275,7 +276,7 @@ export default function PluginsPage() {
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search plugins..."
+                placeholder="Search extensions..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 className="pl-9 w-64"
@@ -297,7 +298,7 @@ export default function PluginsPage() {
           </div>
         </div>
 
-        {/* Plugin grid */}
+        {/* Extension grid */}
         {isLoading ? (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map(i => (
@@ -309,11 +310,11 @@ export default function PluginsPage() {
             <div className="rounded-full bg-muted p-4 mb-4">
               <Plug className="h-8 w-8 text-muted-foreground" />
             </div>
-            <h3 className="mb-2 text-lg font-semibold">No plugins found</h3>
+            <h3 className="mb-2 text-lg font-semibold">No extensions found</h3>
             <p className="max-w-sm text-sm text-muted-foreground">
               {searchQuery || categoryFilter !== "all"
                 ? "Try adjusting your search or filter criteria."
-                : "No CRD plugins are available at the moment."}
+                : "No extensions are available at the moment."}
             </p>
             {(searchQuery || categoryFilter !== "all") && (
               <Button

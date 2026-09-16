@@ -114,7 +114,7 @@ export default function WorkflowPage() {
       }
     } catch (error) {
       console.error("Failed to check clusters:", error);
-      toast.error("Failed to load data");
+      toast.error("Failed to load clusters. Try again.");
     } finally {
       setCheckingClusters(false);
       if (!hasAnyClusters) {
@@ -128,7 +128,7 @@ export default function WorkflowPage() {
       const data = await listWorkflows();
       setWorkflows(data);
     } catch {
-      toast.error("Failed to load workflows");
+      toast.error("Failed to load workflows. Try again.");
     } finally {
       setLoading(false);
     }
